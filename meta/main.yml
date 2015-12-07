@@ -1,0 +1,7 @@
+---
+galaxy_info:
+  author: Location Labs
+  description: Fixes the ubuntu default logrotate settings, which tend to lose log data after somewhere between 4 and 7 days.
+  licence: Apache v2.0
+  min_ansible_version: 1.9.2
+dependencies: []
