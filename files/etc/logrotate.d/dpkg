@@ -1,0 +1,5 @@
+/var/log/dpkg.log /var/log/alternatives.log {
+	missingok
+	notifempty
+	create 644 root root
+}

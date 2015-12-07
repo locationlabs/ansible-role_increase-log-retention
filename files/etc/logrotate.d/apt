@@ -1,0 +1,4 @@
+/var/log/apt/term.log /var/log/apt/history.log {
+  missingok
+  notifempty
+}

@@ -1,0 +1,5 @@
+/var/log/upstart/*.log {
+        missingok
+        notifempty
+	nocreate
+}

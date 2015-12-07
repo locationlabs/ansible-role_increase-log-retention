@@ -1,0 +1,18 @@
+---
+
+  # This is very likely already installed, but just in case
+- name: install packages
+  apt: name=logrotate
+
+- name: fix top-level logrotate.conf to not lose data by default after a few days
+  template: src=etc/logrotate.conf dest=/etc/logrotate.conf owner=root group=root force=yes backup=yes
+
+  # Note: logrotate's default tabooext contains '~', so ansible backups (eg
+  # foo-YYYY-MM-DD@HH:MM:SS~) won't get re-included.
+- name: fix a few per-package logrotate configs
+  copy: src=etc/logrotate.d/{{item}} dest=/etc/logrotate.d/{{item}} owner=root group=root force=yes backup=yes
+  with_items:
+    - apt
+    - dpkg
+    - rsyslog
+    - upstart
